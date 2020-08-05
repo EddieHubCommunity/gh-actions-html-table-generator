@@ -5,6 +5,9 @@ inputs:
     description: 'json file to load'
     required: true
     default: 'data.json'
+  github-token:  # id of input
+    description: 'github token'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'

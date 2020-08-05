@@ -6,19 +6,19 @@ const readmeBox = require('readme-box').ReadmeBox;
 
 (async () => {
     try {
+        const githubToken = core.getInput('github-token');
         const filePath = path.join(process.env.GITHUB_WORKSPACE, core.getInput('json-file-path'));
         const data = fs.readFileSync(filePath, 'utf8');
-        // const json = JSON.parse(content);
+        // const json = JSON.parse(data);
+        console.log('GITHUB REF: ', process.env.GITHUB_RE);
 
-        const oldContent = fs.readFileSync(path.join(process.env.GITHUB_WORKSPACE, 'README.md'), 'utf8');
-        const box = new readmeBox();
-        const replacedContents = box.replaceSection({
+        await readmeBox.updateSection(data, {
+            owner: process.env.GITHUB_REPOSITORY.split('/')[0],
+            repo: process.env.GITHUB_REPOSITORY.split('/')[1],
+            branch: process.env.GITHUB_REF,
+            token: githubToken,
             section: 'data-section',
-            oldContent,
-            newContent: data
         });
-
-        fs.writeFileSync(filePath, replacedContents);
     } catch (error) {
         core.setFailed(error.message);
     }
