@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const readmeBox = require('readme-box').ReadmeBox;
 
-(async function () {
+(async () => {
     try {
         const filePath = core.getInput('json-file-path');
         const content = fs.readFileSync(
@@ -25,4 +25,4 @@ const readmeBox = require('readme-box').ReadmeBox;
     } catch (error) {
         core.setFailed(error.message);
     }
-});
+})();
