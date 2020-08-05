@@ -7,6 +7,7 @@ const readmeBox = require('readme-box').ReadmeBox;
 (async () => {
     try {
         const filePath = core.getInput('json-file-path');
+        const githubToken = core.getInput('github-token');
         const content = fs.readFileSync(
             path.join(process.env.GITHUB_WORKSPACE, filePath)
         );
@@ -16,7 +17,7 @@ const readmeBox = require('readme-box').ReadmeBox;
         await readmeBox.updateSection(content, {
             owner: process.env.GITHUB_REPOSITORY.split('/')[0],
             repo: process.env.GITHUB_REPOSITORY.split('/')[1],
-            token: process.env.GITHUB_TOKEN,
+            token: githubToken,
             section: 'data-section',
         });
 

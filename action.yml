@@ -5,6 +5,9 @@ inputs:
     description: 'json file to load'
     required: true
     default: 'data.json'
+  github-token:  # id of input
+    description: 'to write to your README'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
