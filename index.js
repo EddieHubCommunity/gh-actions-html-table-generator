@@ -1,10 +1,11 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
+const path = require('path');
 
 try {
-    const path = core.getInput('json-file-path');
-    const content = fs.readFileSync(`./${path}`);
+    const filePath = core.getInput('json-file-path');
+    const content = fs.readFileSync(path.join(process.env.GITHUB_WORKSPACE, filePath));
     console.log(content);
     console.log(JSON.parse(content));
     const time = (new Date()).toTimeString();
