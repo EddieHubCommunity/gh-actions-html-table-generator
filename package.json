@@ -19,6 +19,7 @@
   "homepage": "https://github.com/eddiejaoude/github-actions-reader-writer#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^4.0.0"
+    "@actions/github": "^4.0.0",
+    "readme-box": "^0.1.2"
   }
 }
