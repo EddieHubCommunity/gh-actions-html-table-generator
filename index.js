@@ -6,17 +6,16 @@ const readmeBox = require('readme-box').ReadmeBox;
 
 (async () => {
     try {
-        const githubToken = core.getInput('github-token');
         const filePath = path.join(process.env.GITHUB_WORKSPACE, core.getInput('json-file-path'));
-        const content = fs.readFileSync(filePath);
-        const json = JSON.parse(content);
+        const data = fs.readFileSync(filePath, 'utf8');
+        // const json = JSON.parse(content);
 
-        const oldContent = fs.readFileSync(path.join(process.env.GITHUB_WORKSPACE, filePath), 'utf8');
+        const oldContent = fs.readFileSync(path.join(process.env.GITHUB_WORKSPACE, 'README.md'), 'utf8');
         const box = new readmeBox();
         const replacedContents = box.replaceSection({
             section: 'data-section',
             oldContent,
-            newContent: content
+            newContent: data
         });
 
         fs.writeFileSync(filePath, replacedContents);
