@@ -20,6 +20,6 @@ const readmeBox = require('readme-box').ReadmeBox;
             section: 'data-section',
         });
     } catch (error) {
-        core.setFailed(error.message);
+        core.setFailed(JSON.stringify(error));
     }
 })();
