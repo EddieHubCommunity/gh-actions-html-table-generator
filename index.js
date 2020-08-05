@@ -4,7 +4,7 @@ const fs = require('fs');
 
 try {
     const path = core.getInput('json-file-path');
-    const content = fs.readFileSync(path);
+    const content = fs.readFileSync(`./${path}`);
     console.log(content);
     console.log(JSON.parse(content));
     const time = (new Date()).toTimeString();
