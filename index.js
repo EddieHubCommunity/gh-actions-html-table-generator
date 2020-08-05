@@ -10,7 +10,7 @@ const readmeBox = require('readme-box').ReadmeBox;
         const filePath = path.join(process.env.GITHUB_WORKSPACE, core.getInput('json-file-path'));
         const data = fs.readFileSync(filePath, 'utf8');
         // const json = JSON.parse(data);
-        console.log('GITHUB REF: ', process.env.GITHUB_RE);
+        console.log('GITHUB REF: ', process.env.GITHUB_REF);
 
         await readmeBox.updateSection(data, {
             owner: process.env.GITHUB_REPOSITORY.split('/')[0],
