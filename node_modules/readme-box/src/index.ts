@@ -62,14 +62,11 @@ export class ReadmeBox {
   }
 
   async getReadme() {
-    const { data } = await this.request(
-      'GET /repos/:owner/:repo/tree/:branch/readme',
-      {
-        owner: this.owner,
-        repo: this.repo,
-        branch: this.branch
-      }
-    )
+    const { data } = await this.request('GET /repos/:owner/:repo/readme', {
+      owner: this.owner,
+      repo: this.repo,
+      ref: this.branch
+    })
 
     // The API returns the blob as base64 encoded, we need to decode it
     const encoded = data.content
