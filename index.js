@@ -3,6 +3,7 @@ const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 const readmeBox = require('readme-box').ReadmeBox;
+const chunk = require('chunk');
 
 (async () => {
     try {
@@ -12,14 +13,17 @@ const readmeBox = require('readme-box').ReadmeBox;
         const json = JSON.parse(data);
         console.log('GITHUB REF: ', process.env.GITHUB_REF.split('/')[2]);
 
-        let content = json.map((user) => {
-            return `<tr>
-                    <td align="center">
-                        <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
-                        <img src="${user.imageUrl}" />
-                        <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
-                    </td>
-                </tr>`;
+        const columns = 2; // @TODO move to input
+        let content = chunk(json, columns)
+            .map((row) => {
+                const cells = row.map((user) => (`<td align="center">
+                            <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
+                            <img src="${user.imageUrl}" />
+                            <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
+                        </td>`))
+                        .join('');
+
+                return `<tr>${cells}</tr>`;
         });
 
         await readmeBox.updateSection(`<table width="100%">${content.join('')}</table>`, {
