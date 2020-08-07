@@ -9,11 +9,11 @@ const chunk = require('chunk');
     try {
         const githubToken = core.getInput('github-token');
         const filePath = path.join(process.env.GITHUB_WORKSPACE, core.getInput('json-file-path'));
+        const columns = core.getInput('columns');
         const data = fs.readFileSync(filePath, 'utf8');
         const json = JSON.parse(data);
         console.log('GITHUB REF: ', process.env.GITHUB_REF.split('/')[2]);
 
-        const columns = 2; // @TODO move to input
         let content = chunk(json, columns)
             .map((row) => {
                 const cells = row.map((user) => (`<td align="center">

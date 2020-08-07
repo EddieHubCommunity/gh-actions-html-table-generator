@@ -1,7 +1,11 @@
 name: 'Read json file'
 description: 'Output json file to console'
 inputs:
-  json-file-path:  # id of input
+  columns:
+    description: 'how many columns'
+    required: false
+    default: '2'
+  json-file-path:
     description: 'json file to load'
     required: true
     default: 'data.json'
