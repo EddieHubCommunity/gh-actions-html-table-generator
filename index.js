@@ -20,10 +20,13 @@ const chunk = require('chunk');
                             <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
                             <img src="${user.imageUrl}" />
                             <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
-                        </td>`))
-                        .join('');
+                        </td>`));
 
-                return `<tr>${cells}</tr>`;
+                if (cells.length < columns) {
+                    cells.push('<td></td>'.repeat(columns - cells.length));
+                }
+
+                return `<tr>${cells.join('')}</tr>`;
         });
 
         await readmeBox.updateSection(`<table width="100%">${content.join('')}</table>`, {
