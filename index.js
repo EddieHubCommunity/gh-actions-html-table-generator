@@ -9,10 +9,22 @@ const readmeBox = require('readme-box').ReadmeBox;
         const githubToken = core.getInput('github-token');
         const filePath = path.join(process.env.GITHUB_WORKSPACE, core.getInput('json-file-path'));
         const data = fs.readFileSync(filePath, 'utf8');
-        // const json = JSON.parse(data);
+        const json = JSON.parse(data);
         console.log('GITHUB REF: ', process.env.GITHUB_REF.split('/')[2]);
 
-        await readmeBox.updateSection(data, {
+        let content = json.map((user) => {
+            return `
+                <tr>
+                    <td align="center">
+                        <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
+                        <img src="${user.imageUrl}" />
+                        <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
+                    </td>
+                </tr>
+            `;
+        });
+
+        await readmeBox.updateSection(`<table width="100%">${content}</table>`, {
             owner: process.env.GITHUB_REPOSITORY.split('/')[0],
             repo: process.env.GITHUB_REPOSITORY.split('/')[1],
             branch: process.env.GITHUB_REF.split('/')[2],
