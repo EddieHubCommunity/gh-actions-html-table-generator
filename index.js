@@ -13,15 +13,13 @@ const readmeBox = require('readme-box').ReadmeBox;
         console.log('GITHUB REF: ', process.env.GITHUB_REF.split('/')[2]);
 
         let content = json.map((user) => {
-            return `
-                <tr>
+            return `<tr>
                     <td align="center">
                         <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
                         <img src="${user.imageUrl}" />
                         <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
                     </td>
-                </tr>
-            `;
+                </tr>`;
         });
 
         await readmeBox.updateSection(`<table width="100%">${content.join('')}</table>`, {
