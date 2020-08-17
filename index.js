@@ -13,7 +13,7 @@ const generateCell = (user) => {
     </td>`;
 }
 
-const generateRow = (row) => {
+const generateRow = (columns, row) => {
     const cells = row.map((user) => generateCell(user));
 
     if (cells.length < columns) {
@@ -30,10 +30,9 @@ const generateRow = (row) => {
     const data = fs.readFileSync(filePath, 'utf8');
     const json = JSON.parse(data);
 
-    let content = chunk(json, columns)
-        .map((row) => generateRow(row));
-
     try {
+        let content = chunk(json, columns).map((row) => generateRow(columns, row));
+
         await readmeBox.updateSection(`<table width="100%">${content.join('')}</table>`, {
             owner: process.env.GITHUB_REPOSITORY.split('/')[0],
             repo: process.env.GITHUB_REPOSITORY.split('/')[1],
