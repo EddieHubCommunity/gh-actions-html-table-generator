@@ -14,7 +14,7 @@ const generateCell = (cell) => {
     });
     console.log(objectFieldNames);
     console.log(htmlCell);
-    return htmlCell.join('');
+    return htmlCell;
 }
 
 const generateRow = (columns, row) => {
