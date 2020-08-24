@@ -6,7 +6,7 @@ const readmeBox = require('readme-box').ReadmeBox;
 const chunk = require('chunk');
 
 const generateCell = (cell) => {
-    const objectFieldNames = core.getInput('object-field-names');
+    const objectFieldNames = JSON.parse(core.getInput('object-field-names'));
     const htmlCell = core.getInput('html-cell');
     const html = objectFieldNames.map((name) => htmlCell.replace(new RegExp(`{{ ${name} }}`), cell[name])).join('');
     console.log(objectFieldNames);
