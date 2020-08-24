@@ -1,21 +1,49 @@
-# Hello world javascript action
+# Table generator
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This GitHub Action creates a table in your `README.md`
 
 ## Inputs
 
-### `who-to-greet`
+### `github-token` [REQUIRED]
 
-**Required** The name of the person to greet. Default `"World"`.
+This can be achieved with
 
-## Outputs
+```yaml
+with:
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+```
 
-### `time`
+### `columns` [OPTIONAL]
 
-The time we greeted you.
+**defaults to `2`**
+
+```yaml
+with:
+    columns: 3
+```
+
+### `json-file-path` [OPTIONAL]
+
+**defaults to `data.json`**
+
+```yaml
+with:
+    json-file-path: 'your-filename.json'
+```
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
-with:
-    who-to-greet: 'Mona the Octocat'
+```yaml
+jobs:
+  table:
+    runs-on: ubuntu-latest
+    name: Update README from json data
+    steps:
+    - uses: actions/checkout@v2
+    - name: Read/Write data into README
+      uses: eddiejaoude/github-actions-reader-writer@master
+      with:
+        json-file-path: 'data.json'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        columns: 3
+```
