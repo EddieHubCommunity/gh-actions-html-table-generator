@@ -8,13 +8,10 @@ const chunk = require('chunk');
 const generateCell = (cell) => {
     const objectFieldNames = JSON.parse(core.getInput('object-field-names'));
     let htmlCell = core.getInput('html-cell');
-
     objectFieldNames.forEach((name) => {
         htmlCell = htmlCell.replace(new RegExp(`{{ ${name} }}`), cell[name]);
     });
-    console.log(objectFieldNames);
-    console.log(htmlCell);
-    return htmlCell.join('');
+    return htmlCell;
 }
 
 const generateRow = (columns, row) => {
