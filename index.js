@@ -5,16 +5,18 @@ const path = require('path');
 const readmeBox = require('readme-box').ReadmeBox;
 const chunk = require('chunk');
 
-const generateCell = (user) => {
-    return `<td align="center">
-        <p><a href="https://github.com/${user.githubUsername}">${user.name}</a></p>
-        <img src="${user.imageUrl}" />
-        <p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/${user.issueNumber}">(:100: give your vote)</a></p>
-    </td>`;
+const generateCell = (cell) => {
+    const objectFieldNames = core.getInput('object-field-names');
+    const htmlCell = core.getInput('html-cell');
+    const html = objectFieldNames.map((name) => htmlCell.replace(new RegExp(`{{ ${name} }}`), cell[name])).join('');
+    console.log(objectFieldNames);
+    console.log(htmlCell);
+    console.log(html);
+    return html;
 }
 
 const generateRow = (columns, row) => {
-    const cells = row.map((user) => generateCell(user));
+    const cells = row.map((cell) => generateCell(cell));
 
     if (cells.length < columns) {
         cells.push('<td></td>'.repeat(columns - cells.length));
