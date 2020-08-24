@@ -7,7 +7,7 @@ const chunk = require('chunk');
 
 const generateCell = (cell) => {
     const objectFieldNames = JSON.parse(core.getInput('object-field-names'));
-    const htmlCell = core.getInput('html-cell');
+    let htmlCell = core.getInput('html-cell');
 
     objectFieldNames.forEach((name) => {
         htmlCell = htmlCell.replace(new RegExp(`{{ ${name} }}`), cell[name]);
