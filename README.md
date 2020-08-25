@@ -64,4 +64,19 @@ jobs:
         json-file-path: 'data.json'
         github-token: ${{ secrets.GITHUB_TOKEN }}
         columns: 3
+        object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
+        html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(:100: give your vote)</a></p></td>'
+```
+
+### Json file
+
+```typescript
+[
+    {
+        "name": "Akas Rai",
+        "githubUsername": "akasrai",
+        "imageUrl": "https://user-images.githubusercontent.com/624760/88123456-d40df580-cbc2-11ea-9add-a7fc8675b243.png",
+        "issueNumber": 12
+    }
+]
 ```
