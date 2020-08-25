@@ -9,8 +9,14 @@ inputs:
     description: 'json file to load'
     required: true
     default: 'data.json'
-  github-token:  # id of input
+  github-token:
     description: 'github token'
+    required: true
+  html-cell:
+    description: 'html for the table cell'
+    required: true
+  object-field-names:
+    description: 'array of object field names from your json objects'
     required: true
 runs:
   using: 'node12'
