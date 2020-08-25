@@ -6,11 +6,29 @@ This GitHub Action creates a table in your `README.md`
 
 ### `github-token` [REQUIRED]
 
-This can be achieved with
+This is available in your GitHub Action
 
 ```yaml
 with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### `html-cell` [REQUIRED]
+
+This is the html table cell content with `object-field-names`
+
+```yaml
+with:
+    html-cell: '<td>{{ firstname }} {{ lastname }}</td>'
+```
+
+### `object-field-names` [REQUIRED]
+
+This is json, and contains a list of the names of the fields in your json file data object
+
+```yaml
+with:
+    object-field-names: '[ "firstname", "lastname" ]'
 ```
 
 ### `columns` [OPTIONAL]
