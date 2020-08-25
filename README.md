@@ -1,6 +1,8 @@
 # Table generator
 
-This GitHub Action creates a table in your `README.md`
+This GitHub Action creates a html table in your `README.md` from a json file.
+
+![Screenshot](https://user-images.githubusercontent.com/624760/91109172-0f905980-e672-11ea-8126-16276c821914.png)
 
 ## Inputs
 
