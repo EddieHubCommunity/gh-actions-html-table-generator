@@ -53,6 +53,8 @@ with:
 
 ## Example usage
 
+Add `<!--START_SECTION:data-section-->` and `<!--END_SECTION:data-section-->` where you would like your table to appear in your README.
+
 ```yaml
 jobs:
   table:
@@ -61,7 +63,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Read/Write data into README
-      uses: eddiejaoude/github-actions-reader-writer@master
+      uses: eddiejaoude/github-actions-reader-writer@v0.1
       with:
         json-file-path: 'data.json'
         github-token: ${{ secrets.GITHUB_TOKEN }}
