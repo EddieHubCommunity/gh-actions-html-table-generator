@@ -80,3 +80,5 @@ jobs:
     }
 ]
 ```
+
+From this repository usage https://github.com/EddieJaoudeCommunity/awesome-github-profiles
