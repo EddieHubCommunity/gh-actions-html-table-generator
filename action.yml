@@ -1,5 +1,8 @@
-name: 'Read json file'
-description: 'Output json file to console'
+name: 'json2table'
+description: 'json to html table'
+branding:
+  icon: 'code'
+  color: 'orange'
 inputs:
   columns:
     description: 'how many columns'
