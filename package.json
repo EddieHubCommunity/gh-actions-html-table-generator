@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js -o dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
     "@actions/github": "^4.0.0",
     "chunk": "0.0.2",
     "readme-box": "git+https://git@github.com/eddiejaoude/readme-box.git#eddiejaoude-issue-5"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.0"
   }
 }
