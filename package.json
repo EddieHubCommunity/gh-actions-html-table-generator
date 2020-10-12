@@ -1,5 +1,5 @@
 {
-  "name": "github-actions-reader-writer",
+  "name": "gh-actions-html-table-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eddiejaoude/github-actions-reader-writer.git"
+    "url": "git+https://github.com/EddieJaoudeCommunity/gh-actions-html-table-generator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eddiejaoude/github-actions-reader-writer/issues"
+    "url": "https://github.com/EddieJaoudeCommunity/gh-actions-html-table-generator/issues"
   },
   "homepage": "https://github.com/eddiejaoude/github-actions-reader-writer#readme",
   "dependencies": {
