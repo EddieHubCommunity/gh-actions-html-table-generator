@@ -22,7 +22,7 @@
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
     "chunk": "0.0.2",
-    "readme-box": "git+https://git@github.com/eddiejaoude/readme-box.git#eddiejaoude-issue-5"
+    "readme-box": "git+https://git@github.com/JasonEtco/readme-box.git#master"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.24.0"
