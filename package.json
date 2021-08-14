@@ -9,20 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EddieJaoudeCommunity/gh-actions-html-table-generator.git"
+    "url": "git+https://github.com/EddieHubCommunity/gh-actions-html-table-generator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EddieJaoudeCommunity/gh-actions-html-table-generator/issues"
+    "url": "https://github.com/EddieHubCommunity/gh-actions-html-table-generator/issues"
   },
-  "homepage": "https://github.com/eddiejaoude/github-actions-reader-writer#readme",
+  "homepage": "https://github.com/EddieHubCommunity/gh-actions-html-table-generator#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
     "chunk": "0.0.2",
-    "readme-box": "git+https://git@github.com/JasonEtco/readme-box.git#master"
+    "readme-box": "git+https://git@github.com/Panquesito7/readme-box.git#eddiehub"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.24.0"

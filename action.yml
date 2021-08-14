@@ -21,6 +21,10 @@ inputs:
   object-field-names:
     description: 'array of object field names from your json objects'
     required: true
+  file-to-use:
+    description: 'file to push the changes to'
+    required: false
+    default: 'README.md'
 runs:
   using: 'node12'
   main: 'dist/index.js'
