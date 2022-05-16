@@ -51,6 +51,15 @@ with:
     json-file-path: 'your-filename.json'
 ```
 
+### `file-to-use` [OPTIONAL]
+
+**Defaults to `README.md`**
+
+```yaml
+with:
+    file-to-use: 'README.md'
+```
+
 ## Example usage
 
 Add `<!--START_SECTION:data-section-->` and `<!--END_SECTION:data-section-->` where you would like your table to appear in your README.
@@ -69,6 +78,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         columns: 3
         object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
+        file-to-use: 'README.md'
         html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(:100: give your vote)</a></p></td>'
 ```
 
@@ -85,4 +95,4 @@ jobs:
 ]
 ```
 
-From this repository usage https://github.com/EddieJaoudeCommunity/awesome-github-profiles
+From this repository usage <https://github.com/EddieJaoudeCommunity/awesome-github-profiles>
