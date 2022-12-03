@@ -12,7 +12,7 @@ This is available in your GitHub Action
 
 ```yaml
 with:
-    github-token: ${{ secrets.GITHUB_TOKEN }}
+  github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### `html-cell` [REQUIRED]
@@ -21,7 +21,7 @@ This is the html table cell content with `object-field-names`
 
 ```yaml
 with:
-    html-cell: '<td>{{ firstname }} {{ lastname }}</td>'
+  html-cell: "<td>{{ firstname }} {{ lastname }}</td>"
 ```
 
 ### `object-field-names` [REQUIRED]
@@ -30,7 +30,7 @@ This is json, and contains a list of the names of the fields in your json file d
 
 ```yaml
 with:
-    object-field-names: '[ "firstname", "lastname" ]'
+  object-field-names: '[ "firstname", "lastname" ]'
 ```
 
 ### `columns` [OPTIONAL]
@@ -39,7 +39,7 @@ with:
 
 ```yaml
 with:
-    columns: 3
+  columns: 3
 ```
 
 ### `json-file-path` [OPTIONAL]
@@ -48,7 +48,7 @@ with:
 
 ```yaml
 with:
-    json-file-path: 'your-filename.json'
+  json-file-path: "your-filename.json"
 ```
 
 ### `file-to-use` [OPTIONAL]
@@ -57,7 +57,7 @@ with:
 
 ```yaml
 with:
-    file-to-use: 'README.md'
+  file-to-use: "README.md"
 ```
 
 ## Example usage
@@ -70,29 +70,30 @@ jobs:
     runs-on: ubuntu-latest
     name: Update README from json data
     steps:
-    - uses: actions/checkout@v2
-    - name: Read/Write data into README
-      uses: eddiejaoude/github-actions-reader-writer@v0.1
-      with:
-        json-file-path: 'data.json'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        columns: 3
-        object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
-        file-to-use: 'README.md'
-        html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(:100: give your vote)</a></p></td>'
+      - uses: actions/checkout@v2
+      - name: Read/Write data into README
+        uses: eddiejaoude/github-actions-reader-writer@v0.1
+        with:
+          json-file-path: "data.json"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          columns: 3
+          object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
+          file-to-use: "README.md"
+          html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(:100: give your vote)</a></p></td>'
 ```
 
 ### Json file
 
 ```typescript
 [
-    {
-        "name": "Akas Rai",
-        "githubUsername": "akasrai",
-        "imageUrl": "https://user-images.githubusercontent.com/624760/88123456-d40df580-cbc2-11ea-9add-a7fc8675b243.png",
-        "issueNumber": 12
-    }
-]
+  {
+    name: "Akas Rai",
+    githubUsername: "akasrai",
+    imageUrl:
+      "https://user-images.githubusercontent.com/624760/88123456-d40df580-cbc2-11ea-9add-a7fc8675b243.png",
+    issueNumber: 12,
+  },
+];
 ```
 
-From this repository usage <https://github.com/EddieJaoudeCommunity/awesome-github-profiles>
+From this repository usage: [Awesome GitHub profiles](https://github.com/EddieJaoudeCommunity/awesome-github-profiles).
