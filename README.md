@@ -96,4 +96,4 @@ jobs:
 ];
 ```
 
-From this repository usage: [Awesome GitHub profiles](https://github.com/EddieJaoudeCommunity/awesome-github-profiles).
+From this repository usage: [Awesome GitHub profiles](https://github.com/EddieHubCommunity/awesome-github-profiles).
