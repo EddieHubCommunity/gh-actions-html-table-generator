@@ -70,16 +70,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Update README from json data
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Read/Write data into README
-        uses: eddiejaoude/github-actions-reader-writer@v0.1
+        uses: EddieHubCommunity/gh-actions-html-table-generator@main
         with:
           json-file-path: "data.json"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           columns: 3
           object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
           file-to-use: "README.md"
-          html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieJaoudeCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(:100: give your vote)</a></p></td>'
+          html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieHubCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(💯 give your vote)</a></p></td>'
 ```
 
 ### Json file
@@ -92,8 +92,8 @@ jobs:
     imageUrl:
       "https://user-images.githubusercontent.com/624760/88123456-d40df580-cbc2-11ea-9add-a7fc8675b243.png",
     issueNumber: 12,
-  },
-];
+  }
+]
 ```
 
 From this repository usage: [Awesome GitHub profiles](https://github.com/EddieHubCommunity/awesome-github-profiles).
