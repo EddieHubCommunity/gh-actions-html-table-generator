@@ -84,7 +84,7 @@ jobs:
 
 ### Json file
 
-```typescript
+```javascript
 [
   {
     name: "Akas Rai",
