@@ -30,7 +30,7 @@ This is json, and contains a list of the names of the fields in your json file d
 
 ```yaml
 with:
-  object-field-names: '[ "firstname", "lastname" ]'
+  object-field-names: "[ "firstname", "lastname" ]"
 ```
 
 ### `columns` [OPTIONAL]
@@ -77,9 +77,9 @@ jobs:
           json-file-path: "data.json"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           columns: 3
-          object-field-names: '[ "githubUsername", "name", "imageUrl", "issueNumber" ]'
+          object-field-names: "[ "githubUsername", "name", "imageUrl", "issueNumber" ]"
           file-to-use: "README.md"
-          html-cell: '<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieHubCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(💯 give your vote)</a></p></td>'
+          html-cell: "<td align="center"><p><a href="https://github.com/{{ githubUsername }}">{{ name }}</a></p><img src="{{ imageUrl }}" /><p><a href="https://github.com/EddieHubCommunity/awesome-github-profiles/issues/{{ issueNumber }}">(💯 give your vote)</a></p></td>"
 ```
 
 ### Json file
@@ -92,8 +92,8 @@ jobs:
     imageUrl:
       "https://user-images.githubusercontent.com/624760/88123456-d40df580-cbc2-11ea-9add-a7fc8675b243.png",
     issueNumber: 12,
-  }
-]
+  },
+];
 ```
 
 From this repository usage: [Awesome GitHub profiles](https://github.com/EddieHubCommunity/awesome-github-profiles).
