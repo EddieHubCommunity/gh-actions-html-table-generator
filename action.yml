@@ -25,6 +25,10 @@ inputs:
     description: 'file to push the changes to'
     required: false
     default: 'README.md'
+   section-name:
+    description: 'section name to add the table to in the file'
+    required: false
+    default: 'data-section'    
 runs:
   using: 'node16'
   main: 'dist/index.js'
