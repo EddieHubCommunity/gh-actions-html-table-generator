@@ -41,7 +41,6 @@ const generateRow = (columns, row) => {
     const data = fs.readFileSync(filePath, 'utf8');
     const json = JSON.parse(data);
     const fileToUsePath = core.getInput('file-to-use');
-    const sectionName = core.getInput('section-name');
 
     try {
         const content = chunk(json, columns).map((row) => generateRow(columns, row));
@@ -52,7 +51,7 @@ const generateRow = (columns, row) => {
             repo: process.env.GITHUB_REPOSITORY.split('/')[1],
             branch: process.env.GITHUB_REF.split('/')[2],
             token: githubToken,
-            section: sectionName,
+            section: 'data-section',
             path: fileToUsePath,
         });
     } catch (error) {
@@ -3696,24 +3695,24 @@ function removeHook (state, name, method) {
 (function () {
 
     function chunk (collection, size) {
-
+    
         var result = [];
-
+        
         // default size to two item
         size = parseInt(size) || 2;
-
+        
         // add each chunk to the result
         for (var x = 0; x < Math.ceil(collection.length / size); x++) {
-
+            
             var start = x * size;
             var end = start + size;
-
+            
             result.push(collection.slice(start, end));
-
+            
         }
-
+        
         return result;
-
+        
     };
 
     // export in node or browser
