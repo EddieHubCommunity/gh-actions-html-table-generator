@@ -60,6 +60,18 @@ with:
     file-to-use: 'README.md'
 ```
 
+### `section-name` [OPTIONAL]
+
+This allows you to change the `data-section` name in the comments to something else.
+This also allows multiple runs on the same file, for different sections.
+
+**defaults to `data-section`**
+
+```yaml
+with:
+    section-name: my-custom-section
+```
+
 ## Example usage
 
 Add `<!--START_SECTION:data-section-->` and `<!--END_SECTION:data-section-->` where you would like your table to appear in your README.
