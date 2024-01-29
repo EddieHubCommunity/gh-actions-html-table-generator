@@ -3690,6 +3690,7 @@ function removeHook (state, name, method) {
 /***/ 3886:
 /***/ (function(module, exports) {
 
+"use strict";
 
 
 (function () {
