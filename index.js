@@ -34,6 +34,7 @@ const generateRow = (columns, row) => {
     const data = fs.readFileSync(filePath, 'utf8');
     const json = JSON.parse(data);
     const fileToUsePath = core.getInput('file-to-use');
+    const sectionName = core.getInput('section-name');
 
     try {
         const content = chunk(json, columns).map((row) => generateRow(columns, row));
@@ -44,7 +45,7 @@ const generateRow = (columns, row) => {
             repo: process.env.GITHUB_REPOSITORY.split('/')[1],
             branch: process.env.GITHUB_REF.split('/')[2],
             token: githubToken,
-            section: 'data-section',
+            section: sectionName,
             path: fileToUsePath,
         });
     } catch (error) {
